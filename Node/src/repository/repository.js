@@ -23,6 +23,7 @@ async function checkUser(loginId, password){
     const studentQues = db.collection("studentQuestion");
     try{
         const result = await studentQues.find({loginId,password}).toArray();
+        // console.log(result, `aa${loginId} ${password}aa`);
         if(result.length === 0) return null;
         const userId = result[0]["_id"]
         return userId;

@@ -11,5 +11,9 @@ async function update(req,res){
     const result = await Questionservice.update({answer_by_user_id,answer, question_id});
     res.send({msg:result});
 }
+async function find(req,res){
+    const result = await Questionservice.find();
+    res.send({msg:result});
+}
 
-module.exports = {add, update}
+module.exports = {add, update,find}

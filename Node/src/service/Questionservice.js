@@ -10,5 +10,10 @@ async function update(arr){
     return result;
 }
 
+async function find(){
+    const result = await Questionrepo.find();
+    return result;
+}
 
-module.exports = {add, update}
+
+module.exports = {add, update,find}

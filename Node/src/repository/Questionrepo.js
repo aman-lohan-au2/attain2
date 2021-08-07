@@ -31,4 +31,16 @@ async function update({question_id, answer_by_user_id,answer}){
     }
 }
 
-module.exports = {add, update}
+async function find(){
+    const db = await studentQuestionDB();
+    const Question = db.collection("QuestionAnswer");
+    try{
+        const result = await Question.find({}).toArray();
+        return result;
+    }
+    catch (err){
+        return 'Empty'
+    }
+}
+
+module.exports = {add, update,find}

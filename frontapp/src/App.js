@@ -10,14 +10,14 @@ function App() {
   return (
     <div>
       <Router>
-        <Route exact path="/" component={Login}/>
+      <Route exact path="/login" render={(props) => <Login {...props}  />} />
         <Route exact path="/signup" component={Signup}/>
-        <Route exact path="/home" component={Home}/>
+        <Route exact path="/" render={(props) => <Home  {...props}  />} />
 
 
       </Router>
-      {/* <Signup/>
-      <Login/> */}
+      {/* <Signup /> */}
+      {/* <Login id="LoginId"/> */}
 </div>
   );
 }

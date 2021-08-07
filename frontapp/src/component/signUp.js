@@ -19,6 +19,7 @@ function Signup() {
             alert('Ouch something Broken, please retry');
         }
     }
+    
     return(
         <div className="span6">
         <div className="area">

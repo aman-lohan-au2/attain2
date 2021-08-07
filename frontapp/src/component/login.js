@@ -1,8 +1,22 @@
-import React from 'react'
+import React from 'react';
+import {loginstudent} from '../api/index';
 
 function Login(){
-    return(
-        <>
+
+  const handleClick = async(e) => {
+   e.preventDefault();
+     const loginId = document.getElementById('loginId').value;
+     const password = document.getElementById('password').value;
+     const loginID= await loginstudent(loginId, password)
+
+     alert(JSON.stringify(loginID))
+     localStorage.setItem("userId", loginID.msg);
+     window.location.href = '/'
+
+  }
+
+    const ele = 
+(<>
     <div className="sidenav">
               <div className="login-main-text">
                  <h2>ApplicationLogin Page</h2>
@@ -14,14 +28,14 @@ function Login(){
             <div className="login-form">
                <form>
                   <div className="form-group">
-                     <label>User Name</label>
-                     <input type="text" className="form-control" placeholder="User Name"/>
+                     <label>Login ID</label>
+                     <input type="text" id="loginId" className="form-control" placeholder="User Name"/>
                   </div>
                   <div className="form-group">
                      <label>Password</label>
-                     <input type="password" className="form-control" placeholder="Password"/>
+                     <input type="password" id="password" className="form-control" placeholder="Password"/>
                   </div>
-                  <a type="submit" href="/Home" className="btn btn-black">Login</a>
+                  <button type="submit" href="/Home" onClick={handleClick} className="btn btn-black">Login</button>
                   <a type="submit" href="/signup" className="btn btn-secondary">Register</a>
                </form>
             </div>
@@ -29,6 +43,7 @@ function Login(){
       </div>
       </>
       );
+      return ele;
 }
 
 export default Login
